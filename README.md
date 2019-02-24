@@ -25,4 +25,4 @@ once built, run these from the location of dockerfile.
 > this is all pretty barebones but thats basically it. Make sure if you add any dependencies or anything record it here so if we need to bring someone up to speed its easy
 
 
-Made for Ardvarks by Ardvarks :ok_hand:
+Made for Aardvarks by Aardvarks :ok_hand:
