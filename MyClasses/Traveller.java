@@ -1,9 +1,10 @@
+package MyClasses;
 import java.util.*;
 
 
-public class traveller {
+public class Traveller {
        
-    private HashMap<String, int> skills;
+    private HashMap<String, Integer> skills;
     private String name;
     private int strength;
     private int dexterity;
@@ -17,8 +18,12 @@ public class traveller {
 
 
 
-    private traveller(travellerBuilder builder) {
+    private Traveller(TravellerBuilder builder) {
+        this.name = builder.name;
+    }
 
+    public String getName() {
+        return this.name;
     }
 
     /*
@@ -26,20 +31,31 @@ public class traveller {
     */
     public int getSkill(String skill) {
         if(skills.containsKey(skill)) {
-            return skills.get(skill)
-        } else if(skills.containsKey("Jack-of-All-Trades") {
+            return skills.get(skill);
+        } else if(skills.containsKey("Jack-of-All-Trades")) {
             return skills.get("Jack-of-All-Trades") - 3;
         } else {
             return -3;
         }
     }
 
-    public static class travellerBuilder {
+    public static class TravellerBuilder {
+        public HashMap<String, Integer> skills;
+        public String name;
+        public int strength;
+        public int dexterity;
+        public int endurance;
+        public int intellect;
+        public int education;
+        public int social;
+        public int psi;
+        public int credits;
+        public ArrayList<String> gear;
 
-        public travellerBuilder(String name){
+        public TravellerBuilder(String name){
             this.name = name;
-            skills = new HashMap<String, int>();
-            gear = new ArrayList<String>();
+            this.skills = new HashMap<String, Integer>();
+            this.gear = new ArrayList<String>();
         }
         
         /*
@@ -48,7 +64,7 @@ public class traveller {
         public void addSkill(String skillName, int level) {
             if(skills.containsKey(skillName)) {
                 if(skills.get(skillName) < level) {
-                    replace(skillName, level);
+                    skills.replace(skillName, level);
                 }
             } else {
                 skills.put(skillName, level);
@@ -60,7 +76,7 @@ public class traveller {
         */
         public void addSkill(String skillName) {
             if(skills.containsKey(skillName)) {
-                replace(skillName, skills.get(skillName) + 1);
+                skills.replace(skillName, skills.get(skillName) + 1);
             } else {
                 skills.put(skillName, 1);
             }
@@ -79,9 +95,15 @@ public class traveller {
 
         }
 
-        public traveller build() {
-            return new traveller(this);
+        public Traveller build() {
+            return new Traveller(this);
         }
+
+        public String getName() {
+            return this.name;
+        }
+
+
  
     }
 

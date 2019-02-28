@@ -20,7 +20,7 @@ once built, run these from the location of dockerfile.
 
 **to compile** `docker run --rm -v $PWD:/app -w /app travellers/oracle-java:8 javac Main.java`
 
-**to run** `docker run --rm -v $PWD:/app -w /app travellers/oracle-java:8 java Main`
+**to run** `docker run --rm -v $PWD:/app -w /app travellers/oracle-java:8 java -ea Main`
 
 > this is all pretty barebones but thats basically it. Make sure if you add any dependencies or anything record it here so if we need to bring someone up to speed its easy
 
