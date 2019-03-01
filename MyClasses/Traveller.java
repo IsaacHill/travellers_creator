@@ -20,6 +20,7 @@ public class Traveller {
 
     private Traveller(TravellerBuilder builder) {
         this.name = builder.name;
+        this.skills = builder.skills;
     }
 
     public String getName() {
@@ -33,7 +34,7 @@ public class Traveller {
         if(skills.containsKey(skill)) {
             return skills.get(skill);
         } else if(skills.containsKey("Jack-of-All-Trades")) {
-            return skills.get("Jack-of-All-Trades") - 3;
+            return Math.min(skills.get("Jack-of-All-Trades"), 3) - 3;
         } else {
             return -3;
         }
