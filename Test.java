@@ -1,5 +1,5 @@
 import MyClasses.*;
-
+import java.util.*;
 public class Test
 {
      public static void main(String[] args) {
@@ -8,6 +8,7 @@ public class Test
         basicSkillTest();
         jackSkillTest();
         overJackSkillTest();
+        playerChoiceTest();
     }
 
     public static void basicBuilderTest() {
@@ -47,5 +48,14 @@ public class Test
         assert luke.getSkill("Jack-of-All-Trades") == 4 : "Jack-of-All-Trades";
         System.out.println(luke.getSkill("Survival"));
         assert luke.getSkill("Survival") == 0 : "Survival:" + luke.getSkill("Survival");
+    }
+
+    public static void playerChoiceTest() {
+        GUIStandIn manager = new GUIStandIn();
+        ArrayList<String> options = new ArrayList();
+        options.add("One");
+        options.add("Two");
+        options.add("Three");
+        System.out.println((manager.queryPlayerMC("pick something", options)));
     }
 }
