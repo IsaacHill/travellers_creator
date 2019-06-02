@@ -18,7 +18,8 @@ Build the docker image `docker build -f Dockerfile -t travellers/oracle-java:8 .
 
 once built, run these from the location of dockerfile.
 
-**to compile** `docker run --rm -v $PWD:/app -w /app travellers/oracle-java:8 javac Main.java`
+if you add a new file make sure to add it to build
+**to compile** `docker run --rm -v $PWD:/app -w /app travellers/oracle-java:8 javac build`
 
 **to run** `docker run --rm -v $PWD:/app -w /app travellers/oracle-java:8 java -ea Main`
 
