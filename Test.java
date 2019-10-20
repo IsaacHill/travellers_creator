@@ -8,7 +8,8 @@ public class Test
         basicSkillTest();
         jackSkillTest();
         overJackSkillTest();
-        playerChoiceTest();
+        //playerChoiceTest();
+        guiTest();
     }
 
     public static void basicBuilderTest() {
@@ -57,5 +58,10 @@ public class Test
         options.add("Two");
         options.add("Three");
         System.out.println((manager.queryPlayerMC("pick something", options)));
+    }
+
+    public static void guiTest() {
+        GUI manager = new GUI();
+        manager.openWindow();
     }
 }
