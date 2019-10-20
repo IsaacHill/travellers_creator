@@ -1,9 +1,11 @@
-package MyClasses;
+package src.GUI;
 import java.util.*;
 import java.io.*;
-public class GUIStandIn {
 
-    public GUIStandIn() {
+
+public class Standin {
+
+    public Standin() {
 
     }
 

@@ -1,4 +1,4 @@
-package MyClasses;
+package src.GUI;
 import javax.swing.*; 
 public class GUI {
 

@@ -1,67 +1,11 @@
-import MyClasses.*;
-import java.util.*;
+import tests.charTests;
+import tests.guiTests;
+
 public class Test
 {
      public static void main(String[] args) {
-        System.out.println("Hello from the matrix");
-        basicBuilderTest();
-        basicSkillTest();
-        jackSkillTest();
-        overJackSkillTest();
-        //playerChoiceTest();
-        guiTest();
+        charTests.runCharTests();
+        guiTests.guiTest();
     }
 
-    public static void basicBuilderTest() {
-        Traveller.TravellerBuilder builder = new Traveller.TravellerBuilder("Luke Skywalker");
-        Traveller luke = builder.build();
-        assert luke.getName().equals("Luke Skywalker") : "bad name";
- 
-    }
-
-    public static void basicSkillTest() {
-        Traveller.TravellerBuilder builder = new Traveller.TravellerBuilder("Luke Skywalker");
-        builder.addSkill("Gun Combat");
-        builder.addSkill("Advocate", 0);
-        builder.addSkill("Gun Combat");
-        builder.addSkill("Pilot");
-        builder.addSkill("Pilot", 0);
-        Traveller luke = builder.build();
-        assert luke.getSkill("Gun Combat") == 2 : "gun combat";
-        assert luke.getSkill("Advocate") == 0 : "Advocate";
-        assert luke.getSkill("Survival") == -3 : "Survival";
-        assert luke.getSkill("Pilot") == 1 : "Pilot";
-    }
-
-    public static void jackSkillTest() {
-        Traveller.TravellerBuilder builder = new Traveller.TravellerBuilder("Luke Skywalker");
-        builder.addSkill("Jack-of-All-Trades");
-        Traveller luke = builder.build();
-        assert luke.getSkill("Jack-of-All-Trades") == 1 : "Jack-of-All-Trades";
-        System.out.println(luke.getSkill("Survival"));
-        assert luke.getSkill("Survival") == -2 : "Survival";
-    }
-
-    public static void overJackSkillTest() {
-        Traveller.TravellerBuilder builder = new Traveller.TravellerBuilder("Luke Skywalker");
-        builder.addSkill("Jack-of-All-Trades", 4);
-        Traveller luke = builder.build();
-        assert luke.getSkill("Jack-of-All-Trades") == 4 : "Jack-of-All-Trades";
-        System.out.println(luke.getSkill("Survival"));
-        assert luke.getSkill("Survival") == 0 : "Survival:" + luke.getSkill("Survival");
-    }
-
-    public static void playerChoiceTest() {
-        GUIStandIn manager = new GUIStandIn();
-        ArrayList<String> options = new ArrayList();
-        options.add("One");
-        options.add("Two");
-        options.add("Three");
-        System.out.println((manager.queryPlayerMC("pick something", options)));
-    }
-
-    public static void guiTest() {
-        GUI manager = new GUI();
-        manager.openWindow();
-    }
 }

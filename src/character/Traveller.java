@@ -1,4 +1,4 @@
-package MyClasses;
+package src.character;
 import java.util.*;
 
 
