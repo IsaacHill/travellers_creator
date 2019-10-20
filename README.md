@@ -14,15 +14,13 @@ To get started you first need to download Docker https://www.docker.com/get-star
 
 once you have pulled the repo do the following
 
-Build the docker image `docker build -f Dockerfile -t travellers/oracle-java:8 .`
+To let the docker use your display for gui run `socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"` in another terminal (It locks the teminal)
 
-once built, run these from the location of dockerfile.
+Build the docker image and compile the java `docker build -t creator .`
 
-**to compile** `docker run --rm -v $PWD:/app -w /app travellers/oracle-java:8 javac Main.java`
-
-**to run** `docker run --rm -v $PWD:/app -w /app travellers/oracle-java:8 java -ea Main`
-
-**to get onto your container**
+**to run** `docker run -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$(ipconfig getifaddr en0):0 creator`
+ 
+**to get onto your container (I haven't been able to get this working)**
 
 if you want to get onto the docker container and run stuff like a linux system
 you need to to docker run with 1 extra argument `-d` for detach as below
