@@ -8,12 +8,12 @@ public class charTests
 {
 
      public static void runCharTests() {
-        System.out.println("Hello from the matrix");
+        System.out.println("Hello from the 5th");
         basicBuilderTest();
         basicSkillTest();
         jackSkillTest();
         overJackSkillTest();
-        //playerChoiceTest();
+        playerChoiceTest();
     }
 
     public static void basicBuilderTest() {
@@ -56,7 +56,7 @@ public class charTests
     }
 
     public static void playerChoiceTest() {
-        Standin manager = new Standin();
+        GUI manager = new GUI();
         ArrayList<String> options = new ArrayList();
         options.add("One");
         options.add("Two");
