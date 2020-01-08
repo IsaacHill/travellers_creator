@@ -1,6 +1,8 @@
 src/GUI/Standin.java 
 src/GUI/GUI.java 
+src/GUI/PopUpper.java 
 src/GUI/ButtonListener.java
+src/GUI/CareerMenuItem.java
 src/character/Traveller.java 
 Test.java 
 Main.java 

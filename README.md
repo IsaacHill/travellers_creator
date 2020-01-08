@@ -15,6 +15,7 @@ To get started you first need to download Docker https://www.docker.com/get-star
 once you have pulled the repo do the following
 
 To let the docker use your display for gui run `socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"` in another terminal (It locks the teminal)
+For some reason this only seems to work sometimes an alternative is to run `xhost +local:root`
 if you add a new file make sure to add it to build
 Build the docker image and compile the java `docker build -t creator .`
 
