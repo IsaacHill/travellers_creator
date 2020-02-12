@@ -8,7 +8,7 @@ public class charTests
 {
 
      public static void runCharTests() {
-        System.out.println("Hello from the 5th");
+        System.out.println("Hello from the 7th");
         basicBuilderTest();
         basicSkillTest();
         jackSkillTest();

@@ -3,7 +3,9 @@ src/GUI/GUI.java
 src/GUI/PopUpper.java 
 src/GUI/ButtonListener.java
 src/GUI/CareerMenuItem.java
+src/GUI/FakeGui.java
 src/character/Traveller.java 
+src/controler/Controler.java
 Test.java 
 Main.java 
 tests/charTests.java 
