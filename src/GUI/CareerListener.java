@@ -9,6 +9,7 @@ public class CareerListener implements ActionListener {
 
     }
 
+    // prints the image with the given filename when the associated elemnt is pressed
     public void actionPerformed(ActionEvent e) {    
         PopUpper popup = new PopUpper();
         System.out.println(((CareerMenuItem)e.getSource()).filename);

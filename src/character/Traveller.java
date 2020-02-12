@@ -51,6 +51,7 @@ public class Traveller {
         public int social;
         public int psi;
         public int credits;
+        public int age;
         public ArrayList<String> gear;
 
         public TravellerBuilder(String name){

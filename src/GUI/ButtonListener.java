@@ -2,6 +2,9 @@ package src.GUI;
 import java.awt.event.*;  
 import java.util.concurrent.*;
 
+/*
+ * A listener thgat adds the id given in the cnstructior into the queue given when the button is pressed
+ */
 public class ButtonListener implements ActionListener { 
     
     ArrayBlockingQueue<String> guiQueue;  
