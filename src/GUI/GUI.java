@@ -21,14 +21,18 @@ public class GUI {
         f.setVisible(true);//making the frame visible  
     }
 
+     /* sets up the dropdown for the career details menu. needs a png file for each carrer with their career page on it*/
     public void setupEncyclopedia(JFrame f) {
         JMenuBar mb = new JMenuBar();  
         JMenu menu = new JMenu("Careers"); 
         CareerMenuItem item; 
+         // This list will need to be populated with the names of the PNG career sheet files
         String careers[] = {"Agent", "Army", "Navy", "Drifter"};
         CareerListener careerListener = new CareerListener();
+        
         for(int i = 0; i < careers.length; i++) {
             item = new CareerMenuItem(careers[i], careers[i] + ".png");
+            // Adds listeners
             item.addActionListener(careerListener);  
             menu.add(item); 
         }
@@ -53,6 +57,7 @@ public class GUI {
         f.setLayout(null);//using no layout managers  
         f.setVisible(true);//making the frame visible 
         try {
+             // blocks the thread until there is an ellement put into the queue from the action listener
             result = choiceGuiQueue.take();
         } catch (Exception e) {
             result = "";

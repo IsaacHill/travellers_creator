@@ -3,6 +3,7 @@ import java.awt.event.*;
 import java.util.concurrent.*;
 import src.GUI.*;
 
+  // prints the image with the given filename when the associated elemnt is pressed
 public class CareerListener implements ActionListener { 
 
     public CareerListener() {
