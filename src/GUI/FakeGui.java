@@ -38,4 +38,22 @@ public class FakeGui {
 
     }
 
+    public String getPreCareer() {
+        System.out.println("Do you want to go to college?");
+        Scanner sc = new Scanner(System.in);
+        while(true) {
+            while(!sc.hasNextLine());
+            String response = sc.nextLine();
+            if (response == "Uni") {
+                return "Uni";
+            }
+            if (response == "MA") {
+                return "MA";
+            }
+            if (response == "No") {
+                return "No";
+            }
+        }
+    }
+
 }

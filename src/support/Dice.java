@@ -14,4 +14,9 @@ public class Dice {
     public static int roll2D() {
        return Dice.roll1D() + Dice.roll1D();
     }
+
+
+    public static int roll3D() {
+      return Dice.roll1D() + Dice.roll1D() + Dice.roll1D();
+   }
 }

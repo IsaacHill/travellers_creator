@@ -1,5 +1,6 @@
 package src.character;
 import java.util.*;
+import src.support.*;
 
 
 public class Traveller {
@@ -30,6 +31,52 @@ public class Traveller {
     /*
     *   returns the bonus of the given skill
     */
+    public int getStatMod(String stat) {
+        int releventStat = 0;
+        switch (stat) {
+            case "strength":
+                releventStat = this.strength;
+                break;
+            case "dexterity":
+                releventStat = this.dexterity;
+                break;
+            case "endurance":
+                releventStat = this.endurance;
+                break;
+            case "intellect":
+                releventStat = this.intellect;
+                break;
+            case "education":
+                releventStat = this.education;
+                break;
+            case "social":
+                releventStat = this.social;
+                break;
+            case "psi":
+                releventStat = this.psi;
+                break;
+        }
+        if(releventStat > 15) {
+            return 3;
+        }
+        if(releventStat > 12) {
+            return 2;
+        }
+        if(releventStat > 9) {
+            return 1;
+        }
+        if(releventStat > 6) {
+            return 0;
+        }
+        if(releventStat > 2) {
+            return -1;
+        }
+        return -2;
+    }
+
+    /*
+    *   returns the bonus of the given skill
+    */
     public int getSkill(String skill) {
         if(skills.containsKey(skill)) {
             return skills.get(skill);
@@ -39,6 +86,8 @@ public class Traveller {
             return -3;
         }
     }
+
+    
 
     public static class TravellerBuilder {
         public HashMap<String, Integer> skills;
@@ -51,12 +100,23 @@ public class Traveller {
         public int social;
         public int psi;
         public int credits;
+        public int age;
         public ArrayList<String> gear;
+        public List<Career> validCareers;
 
         public TravellerBuilder(String name){
             this.name = name;
             this.skills = new HashMap<String, Integer>();
             this.gear = new ArrayList<String>();
+        }
+
+        public void setStats(List<Integer> orderedStats) {
+            strength = orderedStats.get(0);
+            dexterity = orderedStats.get(1);;
+            endurance = orderedStats.get(2);;
+            intellect = orderedStats.get(3);;
+            education = orderedStats.get(4);;
+            social = orderedStats.get(5);;
         }
         
         /*
@@ -80,6 +140,65 @@ public class Traveller {
                 skills.replace(skillName, skills.get(skillName) + 1);
             } else {
                 skills.put(skillName, 1);
+            }
+        }
+
+            /*
+        *   returns the bonus of the given skill
+        */
+        public int getStatMod(String stat) {
+            int releventStat = 0;
+            switch (stat) {
+                case "strength":
+                    releventStat = this.strength;
+                    break;
+                case "dexterity":
+                    releventStat = this.dexterity;
+                    break;
+                case "endurance":
+                    releventStat = this.endurance;
+                    break;
+                case "intellect":
+                    releventStat = this.intellect;
+                    break;
+                case "education":
+                    releventStat = this.education;
+                    break;
+                case "social":
+                    releventStat = this.social;
+                    break;
+                case "psi":
+                    releventStat = this.psi;
+                    break;
+            }
+            if(releventStat > 15) {
+                return 3;
+            }
+            if(releventStat > 12) {
+                return 2;
+            }
+            if(releventStat > 9) {
+                return 1;
+            }
+            if(releventStat > 6) {
+                return 0;
+            }
+            if(releventStat > 2) {
+                return -1;
+            }
+            return -2;
+        }
+
+            /*
+        *   returns the bonus of the given skill
+        */
+        public int getSkill(String skill) {
+            if(skills.containsKey(skill)) {
+                return skills.get(skill);
+            } else if(skills.containsKey("Jack-of-All-Trades")) {
+                return Math.min(skills.get("Jack-of-All-Trades"), 3) - 3;
+            } else {
+                return -3;
             }
         }
 
