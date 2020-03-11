@@ -38,21 +38,19 @@ public class FakeGui {
 
     }
 
-    public String getPreCareer() {
-        System.out.println("Do you want to go to college?");
+    public int getCareer(List<String> choices) {
+        System.out.println("What Career do you want?");
+        for(int i = 0; i < choices.size(); i++) {
+            System.out.println(Integer.toString(i) + ": " + choices.get(i));
+        }
         Scanner sc = new Scanner(System.in);
         while(true) {
-            while(!sc.hasNextLine());
-            String response = sc.nextLine();
-            if (response == "Uni") {
-                return "Uni";
+            while(!sc.hasNextInt());
+            int response = sc.nextInt();
+            if (response < choices.size()) {
+                return response;
             }
-            if (response == "MA") {
-                return "MA";
-            }
-            if (response == "No") {
-                return "No";
-            }
+            System.out.println("Invalid");
         }
     }
 

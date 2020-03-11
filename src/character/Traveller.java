@@ -102,12 +102,17 @@ public class Traveller {
         public int credits;
         public int age;
         public ArrayList<String> gear;
-        public List<Career> validCareers;
+        public List<Career> history;
 
         public TravellerBuilder(String name){
             this.name = name;
             this.skills = new HashMap<String, Integer>();
             this.gear = new ArrayList<String>();
+            this.history = new ArrayList<Career>();
+        }
+
+        public int getNumCareers() {
+            return (new HashSet<>(history)).size();
         }
 
         public void setStats(List<Integer> orderedStats) {
