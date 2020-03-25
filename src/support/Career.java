@@ -2,6 +2,7 @@ package src.support;
 import java.util.*;
 import src.support.*;
 import src.character.*;
+import src.GUI.*;
 
 
 
@@ -30,7 +31,7 @@ public class Career {
     *   Return a result where the string is what happened and the value indicates if the player gets a
     *   skill from advancement
     */
-    public Result rollForSurvivalEventAdvance(Traveller.TravellerBuilder character, String table){
+    public Result rollForSurvivalEventAdvance(Traveller.TravellerBuilder character, GUI gui){
         return null;
     }
 

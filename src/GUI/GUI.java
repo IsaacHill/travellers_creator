@@ -65,4 +65,18 @@ public class GUI {
         f.setVisible(false);
         return result;
     }
+
+    public List<Integer> requestStats(String message) {
+        List<Integer> result = null;
+        return result;
+
+    }
+
+    public int getCareer(List<String> choices) {
+       return 0;
+    }
+
+    public String getTableChoice(List<String> tables) {
+        return "";
+    }
 }

@@ -2,12 +2,16 @@ package src.support.careers;
 import java.util.*;
 import src.support.*;
 import src.character.*;
+import src.GUI.*;
+import src.support.careers.*;
 
 public class Agent extends Career {
 
     public Agent() {
         name = "Agent";
     }
+        String[] serviceSkills = {"Streewise", "Drive", "Investigate", "Flyer", "Recon", "Gun Combat"};
+        String[] corperate = {"Investigate", "Electronics(Computers)", "Stealth", "Carouse", "Deception", "Streetwise"};
 
     public List<String> getValidTables(Traveller.TravellerBuilder character) {
         if (character.education >= 8) {
@@ -42,7 +46,39 @@ public class Agent extends Career {
     *   Return a result where the string is what happened and the value indicates if the player gets a
     *   skill from advancement
     */
-    public Result rollForSurvivalEventAdvance(Traveller.TravellerBuilder character, String Table){
+    public Result rollForSurvivalEventAdvance(Traveller.TravellerBuilder character, GUI gui){
+        // do basic training
+        if(character.history.size() == 0 ) {
+            for(int i = 0; i < serviceSkills.length; i++) {
+                character.addSkill(serviceSkills[i], 0);
+            }
+            
+        }
+        // Ask for table
+        String[] table = this.getSkillTable(this.getValidTables(character), gui);
+        System.out.println(table[0]);
+        character.addSkill(table[Dice.roll1D()-1]);
         return null;
+    }
+
+    private String[] getSkillTable(List<String> list, GUI gui) {
+        ArrayList<String> choices = new ArrayList<String>();
+        for(int i = 0; i < list.size(); i++) {
+            choices.add(list.get(i));
+        }
+
+        String tableChoice = gui.getTableChoice(choices);
+        System.out.println("0");
+        switch(tableChoice){
+            case "Service Skills" :
+                System.out.println("1");
+                return serviceSkills;
+            case "Corperate" :
+                System.out.println("2");
+                return corperate;
+            default:
+                return null;
+        }
+
     }
 }

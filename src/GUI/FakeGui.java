@@ -2,7 +2,7 @@ package src.GUI;
 import java.io.*;
 import java.util.*;
 
-public class FakeGui {
+public class FakeGui extends GUI {
     
     public FakeGui() {
 
@@ -49,6 +49,22 @@ public class FakeGui {
             int response = sc.nextInt();
             if (response < choices.size()) {
                 return response;
+            }
+            System.out.println("Invalid");
+        }
+    }
+
+    public String getTableChoice(List<String> tables) {
+        System.out.println("What Table do you want?");
+        for(int i = 0; i < tables.size(); i++) {
+            System.out.println(Integer.toString(i) + ": " + tables.get(i));
+        }
+        Scanner sc = new Scanner(System.in);
+        while(true) {
+            while(!sc.hasNextInt());
+            int response = sc.nextInt();
+            if (response < tables.size()) {
+                return tables.get(response);
             }
             System.out.println("Invalid");
         }

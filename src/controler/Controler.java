@@ -8,7 +8,7 @@ import src.support.careers.*;
 
 public class Controler {
     Traveller.TravellerBuilder character;
-    FakeGui gui;
+    GUI gui;
     enum State {START, STATS, PRECAREER, CAREER, FINISH}
 
     public Controler() {
@@ -21,6 +21,7 @@ public class Controler {
         List<Integer> stats;
         List<Integer> statRolls = new ArrayList<Integer>();
         State state = State.START;
+        Career careerChoice = null;
         while(true) {
             switch(state) {
                 case START: 
@@ -51,7 +52,6 @@ public class Controler {
                 case PRECAREER:
                     // Optional: resolve anti-aging
                     // Ask the user for a career
-                    Career careerChoice;
                     careerChoice = getCareerChoice(Arrays.asList(new Agent(), new Drifter(), new Draft()));
                     System.out.println(careerChoice.name);
                     // roll qualification for chosen career
@@ -60,16 +60,16 @@ public class Controler {
                     if(qualificationResult.value == 0) {
                         careerChoice = getCareerChoice(Arrays.asList(new Drifter(), new Draft()));
                     }
-                    else if(qualificationResult.value == 1) {
-                        //careerChoice.rollForSurvivalEventAdvance();
-                    } else {
-                        careerChoice = new Career();
-                    }
-                    // ask them to pick a table
-                    // roll survival, event, advancement, if pass all ask for extra table
-                    // ask if they want another career
+                    state = State.CAREER;
                     
-                    System.out.println(careerChoice.name);
+                    
+                case CAREER:
+                    // resolve ageing
+                    
+                    // roll survival, event, advancement, if pass all ask for extra table
+                    careerChoice.rollForSurvivalEventAdvance(character, gui);
+                    System.out.println(character.skills.toString());
+                    // ask if they want another career
                     break;
                 default:
             }
