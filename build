@@ -5,6 +5,7 @@ src/GUI/ButtonListener.java
 src/GUI/CareerMenuItem.java
 src/GUI/FakeGui.java
 src/character/Traveller.java 
+src/character/Bonus.java
 src/controler/Controler.java
 Test.java 
 Main.java 

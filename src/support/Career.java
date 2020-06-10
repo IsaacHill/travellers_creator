@@ -46,4 +46,15 @@ public class Career {
     public int hashCode(Object other) {
         return this.name.hashCode();
     }
+
+    public String toString() {
+        return this.name;
+    }
+
+    /*
+    *   Loop through terms untill you leave the career
+    */
+    public Result enterCareer(Traveller.TravellerBuilder character, GUI gui) {
+        return null;
+    }
 }

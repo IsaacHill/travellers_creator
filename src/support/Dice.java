@@ -12,7 +12,9 @@ public class Dice {
     }
 
     public static int roll2D() {
-       return Dice.roll1D() + Dice.roll1D();
+       int roll = Dice.roll1D() + Dice.roll1D();
+       System.out.println(Integer.toString(roll));
+       return roll;
     }
 
 

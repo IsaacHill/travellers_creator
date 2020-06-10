@@ -65,11 +65,8 @@ public class Controler {
                     
                 case CAREER:
                     // resolve ageing
-                    
-                    // roll survival, event, advancement, if pass all ask for extra table
-                    careerChoice.rollForSurvivalEventAdvance(character, gui);
-                    System.out.println(character.skills.toString());
-                    // ask if they want another career
+                    careerChoice.enterCareer(character, gui);
+                    state = State.PRECAREER;
                     break;
                 default:
             }

@@ -103,12 +103,14 @@ public class Traveller {
         public int age;
         public ArrayList<String> gear;
         public List<Career> history;
+        public List<Bonus> bonuses;
 
         public TravellerBuilder(String name){
             this.name = name;
             this.skills = new HashMap<String, Integer>();
             this.gear = new ArrayList<String>();
             this.history = new ArrayList<Career>();
+            this.bonuses = new ArrayList<Bonus>();
         }
 
         public int getNumCareers() {
@@ -127,6 +129,7 @@ public class Traveller {
         /*
         *  Sets a given skill to a given level if not higher
         */
+        // TODO: Handle when skills are stat increaces
         public void addSkill(String skillName, int level) {
             if(skills.containsKey(skillName)) {
                 if(skills.get(skillName) < level) {
@@ -228,7 +231,13 @@ public class Traveller {
             return this.name;
         }
 
-
+        public int getExternalBonus(String rollType, String subtype) {
+            int result = 0;
+            for (int i = 0; i < this.bonuses.size(); i++) {
+                result += this.bonuses.get(i).checkBonus(rollType, subtype, this);
+            }
+            return result;
+        }
  
     }
 
